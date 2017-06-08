@@ -3,7 +3,7 @@
   "name": "Create React App Sample",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "http://res.cloudinary.com/jchen54/image/upload/v1496962973/favicon_xllkya.png",
       "sizes": "192x192",
       "type": "image/png"
     }
