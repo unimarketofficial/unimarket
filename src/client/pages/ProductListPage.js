@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TopBar from '../components/top_bar/TopBar.js';
 import ProductList from '../components/product_list/ProductList.js';
 
-class ProductPage extends Component {
+class ProductListPage extends Component {
   render() {
     return (
       <div>
@@ -13,4 +13,4 @@ class ProductPage extends Component {
   }
 }
 
-export default ProductPage;
+export default ProductListPage;
