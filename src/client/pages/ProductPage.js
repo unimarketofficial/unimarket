@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import TopBar from './client/components/top_bar/TopBar.js';
-import ProductList from './client/components/product_list/ProductList.js';
+import TopBar from '../components/top_bar/TopBar.js';
+import ProductList from '../components/product_list/ProductList.js';
 
 class ProductPage extends Component {
   render() {
