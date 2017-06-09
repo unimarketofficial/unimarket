@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SearchBar from './SearchBar.js';
 
 class TopBar extends Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class TopBar extends Component {
   render() {
     return (
       <div>
-        Unimarket
+        <h2>Unimarket</h2>
+        <SearchBar />
       </div>
     );
   }

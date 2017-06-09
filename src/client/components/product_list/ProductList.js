@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ProductListEntry from './ProductListEntry.js';
+import GridListExampleComplex from './GridListExampleComplex.js';
 
 class ProductList extends Component {
   constructor(props) {
@@ -11,11 +12,12 @@ class ProductList extends Component {
   render() {
     return (
       <div>
-        <ul>
+        {/* <ul>
           {this.state.productList.map(product =>
             <li><ProductListEntry product={product}/></li>
           )}
-        </ul>
+        </ul> */}
+        <GridListExampleComplex />
       </div>
     );
   }
