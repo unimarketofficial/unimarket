@@ -34,25 +34,10 @@ class SearchBar extends Component {
 
   render() {
     return (
-      // <form onSubmit={this.handleSearchSubmit}>
-      //   <input size="50" placeholder="calculus textbook, kettle, ramen" value={this.state.searchQuery} onChange={this.handleSearchChange} />
-      //   <i className="search icon" />
-      // </form>
-
-      // <div class="ui search">
-      //   <div class="ui icon input">
-      //     <input class="prompt" type="text" placeholder="calculus textbook, kettle, ramen" value={this.state.searchQuery} onChange={this.handleSearchChange} />
-      //     <i class="search icon" />
-      //   </div>
-      //   <div class="results"></div>
-      // </div>
-
-      <div className="ui search">
-        <div className="ui icon input">
-          <input className="prompt" type="text" placeholder="Search countries..." />
-          <i className="search icon" />
-        </div>
-        <div className="results"></div>
+      <div>
+        <form onSubmit={this.handleSearchSubmit}>
+          <input size="50" placeholder="calculus textbook, kettle, ramen" value={this.state.searchQuery} onChange={this.handleSearchChange} />
+        </form>
       </div>
     );
   }
