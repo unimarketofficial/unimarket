@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
+import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 const styles = {
   root: {
@@ -10,26 +12,26 @@ const styles = {
     justifyContent: 'space-around',
   },
   gridList: {
-    width: 500,
-    height: 450,
+    width: 'auto',
+    height: 'auto',
     overflowY: 'auto',
   },
 };
 
 const tilesData = [
   {
-    img: 'images/grid-list/00-52-29-429_640.jpg',
+    img: 'http://buyersguide.caranddriver.com/media/assets/submodel/6873.jpg',
     title: 'Breakfast',
     author: 'jill111',
     featured: true,
   },
   {
-    img: 'images/grid-list/burger-827309_640.jpg',
+    img: 'https://www.lamborghini.com/en-en/sites/en-en/files/DAM/it/models_gateway/blocks/special.png',
     title: 'Tasty burger',
     author: 'pashminu',
   },
   {
-    img: 'images/grid-list/camera-813814_640.jpg',
+    img: 'https://www.rolls-roycemotorcars.com/content/dam/rollsroyce-website/dawn-refresh/00.FB_social_image.jpg',
     title: 'Camera',
     author: 'Danson67',
   },
@@ -65,30 +67,47 @@ const tilesData = [
  * This example demonstrates "featured" tiles, using the `rows` and `cols` props to adjust the size of the tile.
  * The tiles have a customised title, positioned at the top and with a custom gradient `titleBackground`.
  */
-const GridListExampleComplex = () => (
-  <div style={styles.root}>
-    <GridList
-      cols={2}
-      cellHeight={200}
-      padding={1}
-      style={styles.gridList}
-    >
-      {tilesData.map((tile) => (
-        <GridTile
-          key={tile.img}
-          title={tile.title}
-          actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
-          actionPosition="left"
-          titlePosition="top"
-          titleBackground="linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
-          cols={tile.featured ? 2 : 1}
-          rows={tile.featured ? 2 : 1}
-        >
-          <img src={tile.img} />
-        </GridTile>
-      ))}
-    </GridList>
-  </div>
-);
+class GridListExampleComplex extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+  }
 
+  getChildContext() {
+    return { muiTheme: getMuiTheme(baseTheme) };
+  }
+
+  render() {
+    return(
+      <div style={styles.root}>
+        <GridList
+          cols={2}
+          cellHeight={200}
+          padding={1}
+          style={styles.gridList}
+          >
+            {tilesData.map((tile) => (
+              <GridTile
+                key={tile.img}
+                title={tile.title}
+                actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
+                actionPosition="left"
+                titlePosition="top"
+                titleBackground="linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
+                cols={tile.featured ? 2 : 1}
+                rows={tile.featured ? 2 : 1}
+                >
+                  <img src={tile.img} />
+                </GridTile>
+              ))}
+            </GridList>
+          </div>
+    )
+  }
+}
+
+GridListExampleComplex.childContextTypes = {
+  muiTheme: React.PropTypes.object.isRequired,
+};
 export default GridListExampleComplex;
