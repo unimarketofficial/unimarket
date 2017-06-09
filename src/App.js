@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import ProductListPage from './client/pages/ProductListPage.js';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <div>This is Unimarket.</div>
+        <ProductListPage />
       </div>
     );
   }
