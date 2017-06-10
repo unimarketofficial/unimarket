@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './SearchBar.css';
+import $ from 'jquery';
 
 class SearchBar extends Component {
   constructor(props) {
@@ -9,13 +9,16 @@ class SearchBar extends Component {
     };
     this.handleSearchChange = this.handleSearchChange.bind(this);
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
-    this.search = this.search.bind(this);
   }
+
+  // componentDidMount() {
+  //   this.props.search('Calculus Textbooks');
+  // }
 
   handleSearchSubmit(event) {
     event.preventDefault();
     if (this.state.searchQuery.length > 0) {
-      this.search(this.state.searchQuery);
+      this.props.search(this.state.searchQuery);
       this.setState({
         searchQuery: '',
       });
@@ -29,25 +32,14 @@ class SearchBar extends Component {
     });
   }
 
-  search(query) {
-    window.alert(query);
-  }
-
   render() {
     return (
       <div>
-        {/* <form onSubmit={this.handleSearchSubmit}>
+        <form onSubmit={this.handleSearchSubmit}>
           <input size="50" placeholder="calculus textbook, kettle, ramen" value={this.state.searchQuery} onChange={this.handleSearchChange} />
-        </form> */}
-        <div class="wrap">
-          <div class="search">
-            <input type="text" class="searchTerm" placeholder="What are you looking for?" />
-            <button type="submit" class="searchButton">
-              <i class="fa fa-search"></i>
-            </button>
-          </div>
+          <button type="submit">Search</button>
+        </form>
       </div>
-</div>
     );
   }
 }

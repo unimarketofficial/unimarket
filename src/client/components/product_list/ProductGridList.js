@@ -77,7 +77,7 @@ class ProductGridList extends Component {
         overflowY: 'auto',
       },
     };
-
+    // console.log('results type: ', Array.isArray(this.props.results));
     return (
       <div style={styles.root}>
         <GridList
@@ -103,6 +103,31 @@ class ProductGridList extends Component {
               ))}
         </GridList>
       </div>
+
+      // <div style={styles.root}>
+      //   <GridList
+      //     cols={2}
+      //     cellHeight={200}
+      //     padding={1}
+      //     style={styles.gridList}
+      //     >
+      //     {this.props.results.map((tile) => (
+      //       <GridTile
+      //         key={tile.MediumImage.URL}
+      //         title={tile.ItemAttributes.Title}
+      //         subtitle={tile.ItemAttributes.Author}
+      //         actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
+      //         actionPosition="left"
+      //         titlePosition="top"
+      //         titleBackground="linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
+      //         // cols={tile.featured ? 2 : 1}
+      //         // rows={tile.featured ? 2 : 1}
+      //         >
+      //           <img src={tile.MediumImage.URL} />
+      //       </GridTile>
+      //         ))}
+      //   </GridList>
+      // </div>
     )
   }
 }

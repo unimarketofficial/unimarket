@@ -11,7 +11,7 @@ class TopBar extends Component {
     return (
       <div>
         <h2>Unimarket</h2>
-        <SearchBar />
+        <SearchBar search={this.props.search}/>
       </div>
     );
   }
