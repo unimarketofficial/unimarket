@@ -1,9 +1,4 @@
 import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom';
 import $ from 'jquery';
 import ProductGridList from './client/components/product_list/ProductGridList.js';
 import ProductSpecifics from './client/components/product_specifics/ProductSpecifics.js';

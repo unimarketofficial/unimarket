@@ -33,10 +33,16 @@ class SearchBar extends Component {
   }
 
   render() {
+    const inputStyle = {
+      display: 'inline',
+      'line-height': '50 em',
+      width: '40%',
+    };
+
     return (
       <div>
         <form onSubmit={this.handleSearchSubmit}>
-          <input size="50" placeholder="calculus textbook, kettle, ramen" value={this.state.searchQuery} onChange={this.handleSearchChange} />
+          <input style={inputStyle} placeholder="calculus textbook, kettle, ramen" input="text" value={this.state.searchQuery} onChange={this.handleSearchChange} />
           <button type="submit">Search</button>
         </form>
       </div>

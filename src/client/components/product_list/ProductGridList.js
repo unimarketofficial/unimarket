@@ -5,6 +5,8 @@ import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import Modal from 'react-modal';
+import CircularProgress from 'material-ui/CircularProgress';
+import ProductSpecifics from '../product_specifics/ProductSpecifics.js';
 
 /**
  * This example demonstrates "featured" tiles, using the `rows` and `cols` props to adjust the size of the tile.
@@ -14,11 +16,42 @@ class ProductGridList extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      modalIsOpen: false,
+      tile: '',
+      textDecoration: 'none',
     };
+    this.openModal = this.openModal.bind(this);
+    this.afterOpenModal = this.afterOpenModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.handleMouseEnter = this.handleMouseEnter.bind(this);
+    this.handleMouseLeave = this.handleMouseLeave.bind(this);
   }
 
   getChildContext() {
     return { muiTheme: getMuiTheme(baseTheme) };
+  }
+
+  openModal(tile) {
+    this.setState({modalIsOpen: true, tile}, () => {
+      console.log(this.state.tile);
+    });
+  }
+
+  afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    // this.subtitle.style.color = '#f00';
+  }
+
+  closeModal() {
+    this.setState({modalIsOpen: false});
+  }
+
+  handleMouseEnter() {
+    this.setState({ textDecoration: 'underline'});
+  }
+
+  handleMouseLeave() {
+    this.setState({ textDecoration: 'none'});
   }
 
   render() {
@@ -34,9 +67,39 @@ class ProductGridList extends Component {
         overflowY: 'auto',
       },
     };
+
+    const customStyles = {
+      content : {
+        top                   : '50%',
+        left                  : '50%',
+        right                 : 'auto',
+        bottom                : 'auto',
+        marginRight           : '-50%',
+        transform             : 'translate(-50%, -50%)',
+        width                 : '65%',
+      }
+    };
+
+    let textDecoration = {
+      'text-decoration': this.state.textDecoration
+    }
+
       if (this.props.results.length > 0) {
         return (
           <div>
+            <div>
+              <Modal
+                isOpen={this.state.modalIsOpen}
+                onAfterOpen={this.afterOpenModal}
+                onRequestClose={this.closeModal}
+                style={customStyles}
+                contentLabel="Product Modal"
+              >
+
+                <ProductSpecifics tile={this.state.tile} />
+              </Modal>
+            </div>
+
             <div style={styles.root}>
               <GridList
                 cols={2}
@@ -46,9 +109,12 @@ class ProductGridList extends Component {
                 >
                   {this.props.results.map((tile) => (
                     <GridTile
-                      onClick={this.props.handleProductClicked}
+                      onClick={() => this.openModal(tile)}
+                      onMouseEnter={this.handleMouseEnter}
+                      onMouseLeave={this.handleMouseLeave}
                       key={tile.LargeImage.URL}
                       title={tile.ItemAttributes.Title}
+                      style={textDecoration}
                       subtitle={tile.ItemAttributes.Author}
                       actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
                       actionPosition="left"
@@ -67,7 +133,9 @@ class ProductGridList extends Component {
           )
       } else {
         return (
-          <div></div>
+          <div>
+            <CircularProgress size={80} thickness={5} />
+          </div>
         )
       }
   }

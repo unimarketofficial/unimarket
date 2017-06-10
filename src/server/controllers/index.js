@@ -16,10 +16,10 @@ module.exports = {
       opHelper.execute('ItemSearch', {
         SearchIndex: 'All',
         Keywords: searchQuery,
-        ResponseGroup: 'Images, ItemAttributes, Offers'
-        // 'ResponseGroup': 'ItemAttributes,Offers'
+        ResponseGroup: 'Images, ItemAttributes, Offers, RelatedItems',
+        RelationshipType: 'AuthorityTitle',
       }).then((response) => {
-          // console.log("Results object items: ", response.result.ItemSearchResponse.Items);
+          console.log("Results object items: ", response.result);
           console.log("Results object items: ", response.result.ItemSearchResponse.Items.Item);
           res.json(response.result.ItemSearchResponse.Items.Item);
       }).catch((err) => {
