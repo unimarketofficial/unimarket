@@ -11,9 +11,9 @@ class SearchBar extends Component {
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.props.search('Calculus Textbooks');
-  // }
+  componentDidMount() {
+    this.props.search('Calculus Textbooks');
+  }
 
   handleSearchSubmit(event) {
     event.preventDefault();

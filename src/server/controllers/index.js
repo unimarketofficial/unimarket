@@ -14,7 +14,7 @@ module.exports = {
       });
 
       opHelper.execute('ItemSearch', {
-        SearchIndex: 'Books',
+        SearchIndex: 'All',
         Keywords: searchQuery,
         ResponseGroup: 'Images, ItemAttributes, Offers'
         // 'ResponseGroup': 'ItemAttributes,Offers'
