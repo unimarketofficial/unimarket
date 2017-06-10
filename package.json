@@ -9,6 +9,7 @@
     "body-parser": "^1.17.1",
     "bootstrap": "^3.3.7",
     "concurrently": "^3.4.0",
+    "css-loader": "^0.28.4",
     "dotenv": "^4.0.0",
     "express": "^4.15.0",
     "firebase": "^3.8.0",
@@ -17,10 +18,10 @@
     "nodemon": "^1.11.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-scripts": "1.0.7",
     "react-tap-event-plugin": "^2.0.1",
     "sequelize": "^3.30.4",
-    "serve": "^5.2.2",
-    "react-scripts": "1.0.7"
+    "serve": "^5.2.2"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
