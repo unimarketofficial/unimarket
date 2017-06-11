@@ -1,6 +1,5 @@
 # Unimarket
 A marketplace for community-driven exchange of goods
-The link to the deployed app is [here](https://unimarket.herokuapp.com/).
 
 ## Instructions for Starting Development
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
