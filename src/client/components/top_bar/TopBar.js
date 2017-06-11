@@ -9,15 +9,17 @@ class TopBar extends Component {
   }
   render() {
     const topBarStyle = {
-      'background-color': 'rgb(57, 205, 231)'
-    }
+      backgroundColor: 'rgb(138, 237, 228)',
+      padding: '1% 1% 0% 1%',
+    };
     const imageStyle = {
       height: '3%',
       width: '3%',
     };
     const headerStyle = {
       display: 'inline',
-      'fontFamily': 'Garamond'
+      fontFamily: 'Garamond',
+      padding: '0.5%',
     };
     return (
       <div style={topBarStyle}>

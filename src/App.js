@@ -3,7 +3,6 @@ import $ from 'jquery';
 import ProductGridList from './client/components/product_list/ProductGridList.js';
 import ProductSpecifics from './client/components/product_specifics/ProductSpecifics.js';
 import TopBar from './client/components/top_bar/TopBar.js';
-import './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -22,7 +21,7 @@ class App extends Component {
       type: 'POST',
       contentType: 'application/json',
       data: JSON.stringify({
-        searchQuery
+        searchQuery,
       }),
       success: (results) => {
         console.log(results);
@@ -48,7 +47,10 @@ class App extends Component {
       :
         <div>
           <TopBar search={this.search} />
-          <ProductGridList results={this.state.results} handleProductClicked={this.handleProductClicked} />
+          <ProductGridList
+            results={this.state.results}
+            handleProductClicked={this.handleProductClicked}
+          />
         </div>
     );
   }

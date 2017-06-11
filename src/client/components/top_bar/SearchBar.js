@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import $ from 'jquery';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class SearchBar extends Component {
   constructor(props) {
@@ -11,8 +13,12 @@ class SearchBar extends Component {
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
   }
 
+  getChildContext() {
+    return { muiTheme: getMuiTheme(baseTheme) };
+  }
+
   componentDidMount() {
-    this.props.search('Calculus Textbooks');
+    this.props.search('socks');
   }
 
   handleSearchSubmit(event) {
@@ -28,26 +34,40 @@ class SearchBar extends Component {
   handleSearchChange(event) {
     event.preventDefault();
     this.setState({
-      searchQuery: event.target.value
+      searchQuery: event.target.value,
     });
   }
 
   render() {
     const inputStyle = {
-      display: 'inline',
-      'line-height': '50 em',
+      // flex: '10px 20px',
+      lineHeight: '25px',
       width: '40%',
+      fontSize: '22px',
+      margin: 0,
+      padding: 0,
+      border: 0,
     };
 
     return (
       <div>
         <form onSubmit={this.handleSearchSubmit}>
-          <input style={inputStyle} placeholder="calculus textbook, kettle, ramen" input="text" value={this.state.searchQuery} onChange={this.handleSearchChange} />
-          <button type="submit">Search</button>
+          <input
+            style={inputStyle}
+            placeholder="calculus textbook, kettle, ramen"
+            type="text"
+            value={this.state.searchQuery}
+            onChange={this.handleSearchChange}
+          />
+          <RaisedButton type="submit" label="Search" primary={true} />
         </form>
       </div>
     );
   }
 }
+
+SearchBar.childContextTypes = {
+  muiTheme: React.PropTypes.object.isRequired,
+};
 
 export default SearchBar;
