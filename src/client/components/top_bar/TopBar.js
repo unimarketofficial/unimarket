@@ -23,7 +23,7 @@ class TopBar extends Component {
     };
     return (
       <div style={topBarStyle}>
-        <img style={imageStyle} src="http://res.cloudinary.com/jchen54/image/upload/v1496962973/favicon_xllkya.png" />
+        <img style={imageStyle} src="https://res.cloudinary.com/jchen54/image/upload/v1496962973/favicon_xllkya.png" />
         <h1 style={headerStyle}>Unimarket</h1>
         <SearchBar search={this.props.search}/>
       </div>
