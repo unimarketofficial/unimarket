@@ -1,6 +1,5 @@
 # Unimarket
 A marketplace for community-driven exchange of goods
-The link to the deployed app is [here](https://unimarket.herokuapp.com/).
 
 ## Instructions for Starting Development
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
@@ -12,5 +11,12 @@ npm install
 
 To start the webpack development server and node server:
 ```
-npm start
+npm run start-dev
+```
+
+Store environment variables by creating a .env file and write:
+```
+AWS_ACCESS_KEY_ID=YOUR_AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_ACCESS_KEY
+AWS_ASSOCIATE_ID=YOUR_AWS_ASSOCIATE_ID
 ```

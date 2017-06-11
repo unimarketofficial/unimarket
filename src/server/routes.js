@@ -4,6 +4,6 @@ const router = require('express').Router();
 const controller = require('./controllers');
 
 // Connect controller methods to their corresponding routes
-router.get('/settings', controller.settings.get);
+router.post('/search', controller.search.post);
 
 module.exports = router;
