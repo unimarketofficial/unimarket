@@ -64,52 +64,48 @@ class ProductGridList extends Component {
       marginLeft: '48%'
     };
 
-      // if (this.props.results.length > 0) {
     return (
       <div>
         {this.props.results.length > 0 ?
           <div>
             <div>
               <Modal
-                // style={{overlay: {zIndex: 0}}}
                 isOpen={this.state.modalIsOpen}
                 onAfterOpen={this.afterOpenModal}
                 onRequestClose={this.closeModal}
                 style={customStyles}
                 contentLabel="Product Modal"
                 >
+                <ProductSpecifics tile={this.state.tile} />
+              </Modal>
+            </div>
 
-                  <ProductSpecifics tile={this.state.tile} />
-                </Modal>
-              </div>
-
-              <div style={styles.root}>
-                <GridList
-                  cols={2}
-                  cellHeight={200}
-                  padding={1}
-                  style={styles.gridList}
+            <div style={styles.root}>
+              <GridList
+                cols={2}
+                cellHeight={200}
+                padding={1}
+                style={styles.gridList}
+              >
+                {this.props.results.map((tile) => (
+                  <GridTile
+                    style={{zIndex: 0}}
+                    onClick={() => this.openModal(tile)}
+                    key={tile.LargeImage.URL}
+                    title={tile.ItemAttributes.Title}
+                    subtitle={tile.ItemAttributes.Author}
+                    actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
+                    actionPosition="left"
+                    titlePosition="top"
+                    titleBackground="linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
+                    cols={tile.featured ? 2 : 1}
+                    rows={tile.featured ? 2 : 1}
                   >
-                    {this.props.results.map((tile) => (
-                      <GridTile
-                        style={{zIndex: 0}}
-                        onClick={() => this.openModal(tile)}
-                        key={tile.LargeImage.URL}
-                        title={tile.ItemAttributes.Title}
-                        subtitle={tile.ItemAttributes.Author}
-                        actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
-                        actionPosition="left"
-                        titlePosition="top"
-                        titleBackground="linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
-                        cols={tile.featured ? 2 : 1}
-                        rows={tile.featured ? 2 : 1}
-                      >
-                        <img src={tile.LargeImage.URL} />
-                        {/* <img src={tile.ImageSets.ImageSet[0].ThumbnailImage.URL} /> */}
-                      </GridTile>
-                      ))}
-                </GridList>
-              </div>
+                    <img src={tile.LargeImage.URL} />
+                  </GridTile>
+                  ))}
+              </GridList>
+            </div>
           </div>
           :
           <div style={containerStyle}>
