@@ -24,13 +24,15 @@ class App extends Component {
       url: '/search',
       type: 'POST',
       contentType: 'application/json',
+      dataType: 'json',
       data: JSON.stringify({
         searchQuery,
       }),
       success: (results) => {
-        console.log(results);
-        if (Array.isArray(results) && results.length > 0) {
-          this.setState({ results });
+        console.log('results', results);
+        console.log('results item', results.Item);
+        if (Array.isArray(results.Item) && results.Item.length > 0) {
+          this.setState({ results: results.Item });
         }
       },
       error: (err) => {
