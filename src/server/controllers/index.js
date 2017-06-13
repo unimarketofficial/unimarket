@@ -19,7 +19,8 @@ module.exports = {
         ResponseGroup: 'Images, ItemAttributes, Offers, RelatedItems',
         RelationshipType: 'AuthorityTitle',
       }).then((response) => {
-          res.json(response.result.ItemSearchResponse.Items.Item);
+          // res.json(response.result.ItemSearchResponse.Items.Item);
+          res.json(response);
       }).catch((err) => {
           console.error("Something went wrong! ", err);
           res.json("Something went wrong! ", err);
