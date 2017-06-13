@@ -17,10 +17,6 @@ class SearchBar extends Component {
     return { muiTheme: getMuiTheme(baseTheme) };
   }
 
-  componentDidMount() {
-    this.props.search('socks');
-  }
-
   handleSearchSubmit(event) {
     event.preventDefault();
     if (this.state.searchQuery.length > 0) {
