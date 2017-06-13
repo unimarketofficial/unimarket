@@ -66,7 +66,7 @@ class ProductGridList extends Component {
 
     return (
       <div>
-        {this.props.results.length > 0 ?
+        {Array.isArray(this.props.results) ?
           <div>
             <div>
               <Modal

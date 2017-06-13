@@ -29,13 +29,14 @@ class App extends Component {
       }),
       success: (results) => {
         console.log(results);
-        if (results.length > 0) {
-          this.setState({ results }, () => {
-            window.alert('results state: ' + JSON.stringify(this.state.results));
-          });
+        if (Array.isArray(results) && results.length > 0) {
+          this.setState({ results });
         }
       },
-      error: err => console.log(err)
+      error: (err) => {
+        console.log(err);
+        window.alert('There is no information regarding ' + searchQuery);
+      }
     });
   }
 
