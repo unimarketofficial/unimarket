@@ -22,6 +22,7 @@ module.exports = {
           res.json(response.result.ItemSearchResponse.Items.Item);
       }).catch((err) => {
           console.error("Something went wrong! ", err);
+          res.json("Something went wrong! ", err);
       });
     },
   },
