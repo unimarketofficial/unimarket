@@ -30,7 +30,9 @@ class App extends Component {
       success: (results) => {
         console.log(results);
         if (results.length > 0) {
-          this.setState({ results });
+          this.setState({ results }, () => {
+            window.alert('results state: ' + JSON.stringify(this.state.results));
+          });
         }
       },
       error: err => console.log(err)
