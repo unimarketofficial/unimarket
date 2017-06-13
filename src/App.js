@@ -33,6 +33,8 @@ class App extends Component {
         console.log('results item', results.Item);
         if (Array.isArray(results.Item) && results.Item.length > 0) {
           this.setState({ results: results.Item });
+        } else {
+          window.alert('There is currently no information on ' + searchQuery);
         }
       },
       error: (err) => {
