@@ -15,6 +15,10 @@ class App extends Component {
     this.handleProductClicked = this.handleProductClicked.bind(this);
   }
 
+  componentDidMount() {
+    this.search('socks');
+  }
+
   search(searchQuery) {
     $.ajax({
       url: '/search',
